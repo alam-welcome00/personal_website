@@ -1795,3 +1795,18 @@ footer a:hover {
         width: 210px;
     }
 }
+/* Fix profile image visibility on mobile */
+@media (max-width: 768px) {
+    .hero-image.reveal {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    .hero-image.reveal img {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        max-width: 100%;
+        height: auto;
+    }
+}
