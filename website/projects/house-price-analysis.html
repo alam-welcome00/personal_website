@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>House Price Analytics | Sameer Alam</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+
+        /* ================================
+           PROJECT HERO
+        ================================= */
+
+        .case-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding: 150px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-hero-content {
+            max-width: 900px;
+        }
+
+        .case-label {
+            color: var(--accent);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .case-hero h1 {
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .case-hero h1 span {
+            background: linear-gradient(
+                90deg,
+                var(--accent),
+                var(--purple)
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .case-hero p {
+            max-width: 760px;
+            color: var(--muted);
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        .tool-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .tool-tag {
+            padding: 9px 15px;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            background: rgba(255,255,255,0.04);
+            color: var(--text);
+            font-size: 0.85rem;
+        }
+
+
+        /* ================================
+           SECTIONS
+        ================================= */
+
+        .case-section {
+            padding: 90px 0;
+        }
+
+        .case-section.dark {
+            background: var(--background-two);
+        }
+
+        .section-heading {
+            max-width: 750px;
+            margin-bottom: 45px;
+        }
+
+        .section-heading .number {
+            color: var(--accent);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .section-heading h2 {
+            font-size: 2.5rem;
+            margin: 10px 0 15px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+
+        /* ================================
+           OVERVIEW
+        ================================= */
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .overview-card {
+            padding: 28px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--card);
+            transition: 0.3s ease;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(94,231,223,0.35);
+        }
+
+        .overview-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .overview-card p {
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+
+        /* ================================
+           BUSINESS QUESTIONS
+        ================================= */
+
+        .question-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .question {
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: rgba(255,255,255,0.03);
+        }
+
+        .question span {
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+
+        /* ================================
+           ANALYSIS CARDS
+        ================================= */
+
+        .analysis-card {
+            margin-bottom: 70px;
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            background: rgba(255,255,255,0.035);
+            overflow: hidden;
+        }
+
+        .analysis-header {
+            margin-bottom: 25px;
+        }
+
+        .analysis-number {
+            color: var(--accent);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        .analysis-header h3 {
+            font-size: 1.7rem;
+            margin: 8px 0;
+        }
+
+        .analysis-header p {
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .graph-container {
+            width: 100%;
+            margin: 25px 0;
+            overflow: hidden;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: #080b13;
+        }
+
+        .graph-container img {
+            width: 100%;
+            display: block;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+
+        .graph-container:hover img {
+            transform: scale(1.015);
+        }
+
+        .insight {
+            margin-top: 25px;
+            padding: 22px;
+            border-left: 3px solid var(--accent);
+            background: rgba(94,231,223,0.05);
+            border-radius: 0 12px 12px 0;
+        }
+
+        .insight strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+
+        .insight p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+
+        /* ================================
+           KPI
+        ================================= */
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .kpi-card {
+            padding: 25px;
+            text-align: center;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--card);
+        }
+
+        .kpi-card .value {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(
+                90deg,
+                var(--accent),
+                var(--purple)
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .kpi-card p {
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+
+        /* ================================
+           FEATURE TABLE
+        ================================= */
+
+        .feature-table-wrapper {
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .feature-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        .feature-table th,
+        .feature-table td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .feature-table th {
+            color: var(--accent);
+            background: rgba(255,255,255,0.04);
+        }
+
+        .feature-table td {
+            color: var(--muted);
+        }
+
+
+        /* ================================
+           TAKEAWAYS
+        ================================= */
+
+        .takeaway-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .takeaway {
+            padding: 25px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--card);
+        }
+
+        .takeaway h3 {
+            margin-bottom: 10px;
+        }
+
+        .takeaway p {
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+
+        /* ================================
+           CONCLUSION
+        ================================= */
+
+        .conclusion-box {
+            max-width: 900px;
+            padding: 40px;
+            border-radius: 25px;
+            border: 1px solid var(--border);
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(94,231,223,0.07),
+                    rgba(128,103,255,0.07)
+                );
+        }
+
+        .conclusion-box p {
+            color: var(--muted);
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+
+
+        /* ================================
+           RESPONSIVE
+        ================================= */
+
+        @media (max-width: 900px) {
+
+            .overview-grid,
+            .kpi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .question-list,
+            .takeaway-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .case-hero {
+                padding-top: 120px;
+            }
+
+            .overview-grid,
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-section {
+                padding: 65px 0;
+            }
+
+            .analysis-card {
+                padding: 20px;
+            }
+        }
+        .case-section .container,
+    .case-hero .container {
+    width: min(1200px, calc(100% - 80px));
+    margin: 0 auto;
+
+    /* =========================
+   COMPACT GRAPH SIZE
+   ========================= */
+
+.graph-container {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 18px;
+}
+
+.graph-container img {
+    width: 100%;
+    max-height: 480px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+/* For side-by-side graphs */
+.graph-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.graph-grid .graph-container {
+    margin: 0;
+    max-width: 100%;
+}
+
+.graph-grid img {
+    max-height: 350px;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    .graph-container {
+        max-width: 100%;
+        padding: 12px;
+    }
+
+    .graph-container img {
+        max-height: 350px;
+    }
+
+    .graph-grid {
+        grid-template-columns: 1fr;
+    }
+}
+}
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- ================================
+     NAVBAR
+================================= -->
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+        <a href="../index.html" class="logo">
+            Sameer<span>.</span>
+        </a>
+
+        <nav class="nav-links">
+
+            <a href="../index.html">Home</a>
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#skills">Skills</a>
+            <a href="../index.html#projects">Projects</a>
+            <a href="../index.html#contact">Contact</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================================
+     HERO
+================================= -->
+
+<section class="case-hero">
+
+    <div class="container">
+
+        <div class="case-hero-content reveal">
+
+            <div class="case-label">
+                Data Analytics Case Study
+            </div>
+
+            <h1>
+                House Price
+                <span>Analytics</span>
+            </h1>
+
+            <p>
+                An exploratory analysis of residential property prices,
+                focusing on the characteristics associated with SalePrice,
+                data quality, statistical distributions, outliers,
+                transformations and feature engineering.
+            </p>
+
+            <div class="tool-list">
+
+                <div class="tool-tag">Python</div>
+                <div class="tool-tag">Pandas</div>
+                <div class="tool-tag">NumPy</div>
+                <div class="tool-tag">Matplotlib</div>
+                <div class="tool-tag">Seaborn</div>
+                <div class="tool-tag">Statistics</div>
+                <div class="tool-tag">Feature Engineering</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     PROJECT OVERVIEW
+================================= -->
+
+<section class="case-section">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="number">01 — OVERVIEW</div>
+
+            <h2>Project Objective</h2>
+
+            <p>
+                The objective of this project was to understand the
+                factors associated with residential property prices
+                and prepare the dataset for further predictive
+                modeling.
+            </p>
+
+        </div>
+
+
+        <div class="overview-grid">
+
+            <div class="overview-card reveal">
+
+                <h3>Problem</h3>
+
+                <p>
+                    Understand which property characteristics show
+                    stronger relationships with house selling prices.
+                </p>
+
+            </div>
+
+
+            <div class="overview-card reveal">
+
+                <h3>Approach</h3>
+
+                <p>
+                    Performed data quality analysis, missing-value
+                    treatment, outlier analysis, distribution analysis,
+                    transformation and feature engineering.
+                </p>
+
+            </div>
+
+
+            <div class="overview-card reveal">
+
+                <h3>Goal</h3>
+
+                <p>
+                    Identify meaningful patterns and prepare a
+                    reliable analytical dataset for future predictive
+                    modeling.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     BUSINESS QUESTIONS
+================================= -->
+
+<section class="case-section dark">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="number">02 — QUESTIONS</div>
+
+            <h2>Business Questions</h2>
+
+            <p>
+                Rather than treating the dataset as a collection of
+                columns, the analysis was structured around questions
+                that could help understand residential property values.
+            </p>
+
+        </div>
+
+
+        <div class="question-list">
+
+            <div class="question">
+                <span>Q1</span>
+                What property characteristics are most strongly
+                associated with SalePrice?
+            </div>
+
+            <div class="question">
+                <span>Q2</span>
+                How does overall house quality relate to selling price?
+            </div>
+
+            <div class="question">
+                <span>Q3</span>
+                How does neighborhood relate to house prices?
+            </div>
+
+            <div class="question">
+                <span>Q4</span>
+                Does living area show a strong relationship with price?
+            </div>
+
+            <div class="question">
+                <span>Q5</span>
+                Does basement space contribute to higher property values?
+            </div>
+
+            <div class="question">
+                <span>Q6</span>
+                Is garage capacity associated with higher selling prices?
+            </div>
+
+            <div class="question">
+                <span>Q7</span>
+                Does property age relate to selling price?
+            </div>
+
+            <div class="question">
+                <span>Q8</span>
+                Does recent renovation appear to be associated with
+                property value?
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     DATA QUALITY
+================================= -->
+
+<section class="case-section">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="number">03 — DATA QUALITY</div>
+
+            <h2>Understanding Missing Values</h2>
+
+            <p>
+                Missing values were investigated before applying
+                imputation. In several categorical variables, missing
+                values represent the absence of a property feature
+                rather than random missing information.
+            </p>
+
+        </div>
+
+
+        <div class="kpi-grid">
+
+            <div class="kpi-card reveal">
+
+                <div class="value">99.5%</div>
+
+                <p>PoolQC Missing</p>
+
+            </div>
+
+
+            <div class="kpi-card reveal">
+
+                <div class="value">96.3%</div>
+
+                <p>MiscFeature Missing</p>
+
+            </div>
+
+
+            <div class="kpi-card reveal">
+
+                <div class="value">93.8%</div>
+
+                <p>Alley Missing</p>
+
+            </div>
+
+
+            <div class="kpi-card reveal">
+
+                <div class="value">80.8%</div>
+
+                <p>Fence Missing</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="insight reveal">
+
+            <strong>Key Insight</strong>
+
+            <p>
+                High missingness in variables such as PoolQC, Alley,
+                Fence and MiscFeature largely reflects properties
+                where these features are not present. This distinction
+                is important because missingness can carry business
+                meaning rather than simply representing incomplete data.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     PRICE DISTRIBUTION
+================================= -->
+
+<section class="case-section dark">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="number">04 — PRICE DISTRIBUTION</div>
+
+            <h2>Understanding SalePrice</h2>
+
+            <p>
+                SalePrice was examined using its distribution and
+                skewness to understand the shape of the target variable.
+            </p>
+
+        </div>
+
+
+        <div class="analysis-card reveal">
+
+            <div class="analysis-header">
+
+                <div class="analysis-number">ANALYSIS 01</div>
+
+                <h3>SalePrice Distribution</h3>
+
+                <p>
+                    The distribution is positively skewed, with a
+                    skewness value of approximately 1.45.
+                </p>
+
+            </div>
+
+
+            <div class="graph-container">
+
+                <img
+                    src="../images/house-price/saleprice-distribution.png"
+                    alt="SalePrice distribution"
+                >
+
+            </div>
+
+
+            <div class="insight">
+
+                <strong>Insight</strong>
+
+                <p>
+                    Most properties are concentrated toward the lower
+                    and middle price ranges, while a smaller number of
+                    high-priced properties extend the right tail.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     QUALITY
+================================= -->
+
+<section class="case-section">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="number">05 — PROPERTY QUALITY</div>
+
+            <h2>Does Quality Influence Price?</h2>
+
+            <p>
+                OverallQual shows one of the strongest relationships
+                with SalePrice in the dataset.
+            </p>
+
+        </div>
+
+
+        <div class="analysis-card reveal">
+
+            <div class="analysis-header">
+
+                <div class="analysis-number">ANALYSIS 02</div>
+
+                <h3>Overall Quality vs SalePrice</h3>
+
+                <p>
+                    Both the box plot and average-price analysis show
+                    a clear upward pattern as overall quality increases.
+                </p>
+
+            </div>
+
+
+            <div class="graph-container">
+
+                <img
+                    src="../images/house-price/quality-vs-price.png"
+                    alt="Overall quality versus sale price"
+                >
+
+            </div>
+
+
+            <div class="insight">
+
+                <strong>Insight</strong>
+
+                <p>
+                    Higher overall quality is strongly associated with
+                    higher selling prices. OverallQual had a correlation
+                    of approximately 0.79 with SalePrice, making it one
+                    of the strongest numerical indicators examined.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     NEIGHBORHOOD
+================================= -->
+
+<section class="case-section dark">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="number">06 — LOCATION</div>
+
+            <h2>Neighborhood & Property Value</h2>
+
+            <p>
+                Neighborhood was analyzed to understand how selling
+                prices differ across locations.
+            </p>
+
+        </div>
+
+
+        <div class="analysis-card reveal">
+
+            <div class="analysis-header">
+
+                <div class="analysis-number">ANALYSIS 03</div>
+
+                <h3>Median SalePrice by Neighborhood</h3>
+
+                <p>
+                    The analysis showed substantial variation in
+                    property prices across neighborhoods.
+                </p>
+
+            </div>
+
+
+            <div class="graph-container">
+
+                <img
+                    src="../images/house-price/neighborhood-price.png"
+                    alt="Median house price by neighborhood"
+                >
+
+            </div>
+
+
+            <div class="insight">
+
+                <strong>Insight</strong>
+
+                <p>
+                    Neighborhoods such as Crawfor, Sawyer and Gilbert
+                    showed higher observed price levels in the dataset,
+                    while SawyerW, IDOTRR and Blmngtn were among the
+                    lower-priced groups observed in this analysis.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     LIVING AREA
+================================= -->
+
+<section class="case-section">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="number">07 — PROPERTY SIZE</div>
+
+            <h2>Does Living Area Relate to Price?</h2>
+
+        </div>
+
+
+        <div class="analysis-card reveal">
+
+            <div class="analysis-header">
+
+                <div class="analysis-number">ANALYSIS 04</div>
+
+                <h3>GrLivArea vs SalePrice</h3>
+
+                <p>
+                    The scatter plot shows a positive relationship
+                    between above-ground living area and selling price.
+                </p>
+
+            </div>
+
+
+            <div class="graph-container">
+
+                <img
+                    src="../images/house-price/livingarea-vs-price.png"
+                    alt="Living area versus sale price"
+                >
+
+            </div>
+
+
+            <div class="insight">
+
+                <strong>Correlation ≈ 0.72</strong>
+
+                <p>
+                    GrLivArea has a strong positive linear association
+                    with SalePrice. However, the variation in prices
+                    among properties of similar size indicates that
+                    size alone does not explain the entire price.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     BASEMENT
+================================= -->
+
+<section class="case-section dark">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="number">08 — BASEMENT</div>
+
+            <h2>Basement Space & Property Value</h2>
+
+        </div>
+
+
+        <div class="analysis-card reveal">
+
+            <div class="analysis-header">
+
+                <div class="analysis-number">ANALYSIS 05</div>
+
+                <h3>Total Basement Area vs SalePrice</h3>
+
+                <p>
+                    Basement size was investigated as another measure
+                    of usable residential space.
+                </p>
+
+            </div>
+
+
+            <div class="graph-container">
+
+                <img
+                    src="../images/house-price/basement-vs-price.png"
+                    alt="Basement area versus sale price"
+                >
+
+            </div>
+
+
+            <div class="insight">
+
+                <strong>Insight</strong>
+
+                <p>
+                    Total basement area shows a positive association
+                    with SalePrice. The relationship should be
+                    interpreted alongside overall quality, above-ground
+                    living area and other property characteristics.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     GARAGE
+================================= -->
+
+<section class="case-section">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="number">09 — GARAGE</div>
+
+            <h2>Garage Capacity & Price</h2>
+
+        </div>
+
+
+        <div class="analysis-card reveal">
+
+            <div class="analysis-header">
+
+                <div class="analysis-number">ANALYSIS 06</div>
+
+                <h3>Garage Area vs SalePrice</h3>
+
+                <p>
+                    Garage characteristics were investigated to
+                    determine whether additional garage capacity is
+                    associated with higher property prices.
+                </p>
+
+            </div>
+
+
+            <div class="graph-container">
+
+                <img
+                    src="../images/house-price/garage-vs-price.png"
+                    alt="Garage area versus sale price"
+                >
+
+            </div>
+
+
+            <div class="insight">
+
+                <strong>Correlation ≈ 0.62</strong>
+
+                <p>
+                    Garage area shows a moderately strong positive
+                    association with SalePrice. The relationship
+                    suggests that garage capacity is useful information,
+                    although it is not a standalone explanation of price.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     BEDROOMS / BATHROOMS
+================================= -->
+
+<section class="case-section dark">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="number">10 — ROOMS</div>
+
+            <h2>Bedrooms, Bathrooms & Rooms</h2>
+
+        </div>
+
+
+        <div class="analysis-card reveal">
+
+            <div class="analysis-header">
+
+                <div class="analysis-number">ANALYSIS 07</div>
+
+                <h3>Bedrooms vs SalePrice</h3>
+
+                <p>
+                    Most properties in the dataset contain approximately
+                    two to four bedrooms. Bedroom count alone shows a
+                    relatively weak linear relationship with price.
+                </p>
+
+            </div>
+
+
+            <div class="graph-container">
+
+                <img
+                    src="../images/house-price/bedrooms-vs-price.png"
+                    alt="Bedrooms versus sale price"
+                >
+
+            </div>
+
+
+            <div class="insight">
+
+                <strong>Correlation ≈ 0.19</strong>
+
+                <p>
+                    Bedroom count has a relatively weak linear
+                    association with SalePrice. This suggests that
+                    simply increasing the number of bedrooms does not
+                    necessarily translate into proportionally higher
+                    selling prices.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="analysis-card reveal">
+
+            <div class="analysis-header">
+
+                <div class="analysis-number">ANALYSIS 08</div>
+
+                <h3>Bathrooms vs SalePrice</h3>
+
+                <p>
+                    Most properties contain one or two full bathrooms,
+                    while a smaller number contain three or more.
+                </p>
+
+            </div>
+
+
+            <div class="graph-container">
+
+                <img
+                    src="../images/house-price/bathrooms-vs-price.png"
+                    alt="Bathrooms versus sale price"
+                >
+
+            </div>
+
+
+            <div class="insight">
+
+                <strong>Correlation ≈ 0.58</strong>
+
+                <p>
+                    Bathroom count shows a stronger positive association
+                    with SalePrice than bedroom count, although other
+                    property characteristics also contribute to price.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     AGE
+================================= -->
+
+<section class="case-section">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="number">11 — PROPERTY AGE</div>
+
+            <h2>Does Property Age Matter?</h2>
+
+        </div>
+
+
+        <div class="analysis-card reveal">
+
+            <div class="analysis-header">
+
+                <div class="analysis-number">ANALYSIS 09</div>
+
+                <h3>House Age vs SalePrice</h3>
+
+                <p>
+                    House age was derived from construction year and
+                    selling year to create a more interpretable feature.
+                </p>
+
+            </div>
+
+
+            <div class="graph-container">
+
+                <img
+                    src="../images/house-price/houseage-vs-price.png"
+                    alt="House age versus sale price"
+                >
+
+            </div>
+
+
+            <div class="insight">
+
+                <strong>Feature Engineering Insight</strong>
+
+                <p>
+                    Newer properties generally show higher observed
+                    selling prices in the dataset. Creating HouseAge
+                    provides a more business-friendly representation
+                    than using construction year alone.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     RENOVATION
+================================= -->
+
+<section class="case-section dark">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="number">12 — RENOVATION</div>
+
+            <h2>Does Recent Renovation Matter?</h2>
+
+        </div>
+
+
+        <div class="analysis-card reveal">
+
+            <div class="analysis-header">
+
+                <div class="analysis-number">ANALYSIS 10</div>
+
+                <h3>Years Since Renovation vs SalePrice</h3>
+
+                <p>
+                    A new feature was created using the year sold and
+                    year of the most recent remodeling.
+                </p>
+
+            </div>
+
+
+            <div class="graph-container">
+
+                <img
+                    src="../images/house-price/renovation-vs-price.png"
+                    alt="Renovation age versus sale price"
+                >
+
+            </div>
+
+
+            <div class="insight">
+
+                <strong>Feature Engineering Insight</strong>
+
+                <p>
+                    Recently renovated properties showed higher observed
+                    selling prices in the analysis. The engineered
+                    YearsSinceRemod feature makes this relationship
+                    easier to investigate than the original year field.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     SKEWNESS
+================================= -->
+
+<section class="case-section">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="number">13 — DISTRIBUTION</div>
+
+            <h2>Skewness & Transformation</h2>
+
+            <p>
+                Highly skewed variables can affect statistical analysis
+                and machine-learning algorithms. LotArea was therefore
+                investigated and transformed using the Yeo-Johnson
+                transformation.
+            </p>
+
+        </div>
+
+
+        <div class="analysis-card reveal">
+
+            <div class="analysis-header">
+
+                <div class="analysis-number">ANALYSIS 11</div>
+
+                <h3>LotArea Before Transformation</h3>
+
+                <p>
+                    LotArea showed extreme right skewness with a
+                    skewness value of approximately 12.2.
+                </p>
+
+            </div>
+
+
+            <div class="graph-container">
+
+                <img
+                    src="../images/house-price/skewness-before.png"
+                    alt="LotArea distribution before transformation"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="analysis-card reveal">
+
+            <div class="analysis-header">
+
+                <div class="analysis-number">ANALYSIS 12</div>
+
+                <h3>LotArea After Yeo-Johnson Transformation</h3>
+
+                <p>
+                    After transformation, the skewness reduced to
+                    approximately 0.02.
+                </p>
+
+            </div>
+
+
+            <div class="graph-container">
+
+                <img
+                    src="../images/house-price/skewness-after.png"
+                    alt="LotArea distribution after Yeo-Johnson transformation"
+                >
+
+            </div>
+
+
+            <div class="insight">
+
+                <strong>Transformation Result</strong>
+
+                <p>
+                    Yeo-Johnson transformation substantially reduced
+                    the skewness of LotArea, producing a much more
+                    balanced distribution.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     CORRELATION
+================================= -->
+
+<section class="case-section dark">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="number">14 — CORRELATION</div>
+
+            <h2>Strongest Indicators of SalePrice</h2>
+
+            <p>
+                Correlation analysis was used to identify numerical
+                variables with stronger linear associations with
+                SalePrice.
+            </p>
+
+        </div>
+
+
+        <div class="graph-container reveal">
+
+            <img
+                src="../images/house-price/correlation-heatmap.png"
+                alt="Correlation heatmap of house price features"
+            >
+
+        </div>
+
+
+        <div class="feature-table-wrapper reveal">
+
+            <table class="feature-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Feature</th>
+                        <th>Correlation with SalePrice</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>OverallQual</td>
+                        <td>0.792</td>
+                    </tr>
+
+                    <tr>
+                        <td>GrLivArea</td>
+                        <td>0.722</td>
+                    </tr>
+
+                    <tr>
+                        <td>GarageCars</td>
+                        <td>0.650</td>
+                    </tr>
+
+                    <tr>
+                        <td>TotalBsmtSF</td>
+                        <td>0.614</td>
+                    </tr>
+
+                    <tr>
+                        <td>FullBath</td>
+                        <td>0.584</td>
+                    </tr>
+
+                    <tr>
+                        <td>YearBuilt</td>
+                        <td>0.534</td>
+                    </tr>
+
+                    <tr>
+                        <td>YearRemodAdd</td>
+                        <td>0.523</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <div class="insight reveal">
+
+            <strong>Important Interpretation</strong>
+
+            <p>
+                OverallQual, GrLivArea, GarageCars, TotalBsmtSF,
+                FullBath, YearBuilt and YearRemodAdd show relatively
+                stronger linear associations with SalePrice. These
+                relationships indicate useful variables for further
+                investigation, but correlation alone does not establish
+                causation.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     FEATURE ENGINEERING
+================================= -->
+
+<section class="case-section">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="number">15 — FEATURE ENGINEERING</div>
+
+            <h2>Creating More Meaningful Features</h2>
+
+            <p>
+                Feature engineering was used to convert raw columns
+                into variables that are easier to interpret from a
+                property and business perspective.
+            </p>
+
+        </div>
+
+
+        <div class="feature-table-wrapper reveal">
+
+            <table class="feature-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Engineered Feature</th>
+                        <th>Concept</th>
+                        <th>Purpose</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>HouseAge</td>
+
+                        <td>
+                            YrSold - YearBuilt
+                        </td>
+
+                        <td>
+                            Measures property age at the time of sale.
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>YearsSinceRemod</td>
+
+                        <td>
+                            YrSold - YearRemodAdd
+                        </td>
+
+                        <td>
+                            Measures how recently the property was remodeled.
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>TotalSF</td>
+
+                        <td>
+                            Basement + 1st Floor + 2nd Floor
+                        </td>
+
+                        <td>
+                            Represents total usable residential space.
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>TotalBath</td>
+
+                        <td>
+                            Full + Half Bathroom Components
+                        </td>
+
+                        <td>
+                            Creates a combined bathroom measure.
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>TotalPorchSF</td>
+
+                        <td>
+                            Combined porch/deck areas
+                        </td>
+
+                        <td>
+                            Represents total outdoor covered/open space.
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     FINAL INSIGHTS
+================================= -->
+
+<section class="case-section dark">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="number">16 — KEY FINDINGS</div>
+
+            <h2>What Did the Analysis Reveal?</h2>
+
+        </div>
+
+
+        <div class="takeaway-grid">
+
+            <div class="takeaway reveal">
+
+                <h3>01 — Quality Matters</h3>
+
+                <p>
+                    OverallQual showed the strongest observed linear
+                    association with SalePrice among the analyzed
+                    numerical features.
+                </p>
+
+            </div>
+
+
+            <div class="takeaway reveal">
+
+                <h3>02 — Size Matters</h3>
+
+                <p>
+                    GrLivArea showed a strong positive association with
+                    SalePrice, although property size does not explain
+                    all price variation.
+                </p>
+
+            </div>
+
+
+            <div class="takeaway reveal">
+
+                <h3>03 — Location Matters</h3>
+
+                <p>
+                    Selling prices varied substantially across
+                    neighborhoods, indicating that location is an
+                    important dimension for further analysis.
+                </p>
+
+            </div>
+
+
+            <div class="takeaway reveal">
+
+                <h3>04 — Garage & Basement</h3>
+
+                <p>
+                    Garage capacity and basement area showed positive
+                    associations with SalePrice and provide useful
+                    additional information about property value.
+                </p>
+
+            </div>
+
+
+            <div class="takeaway reveal">
+
+                <h3>05 — Property Age</h3>
+
+                <p>
+                    Newer properties generally showed higher observed
+                    selling prices, motivating the creation of the
+                    HouseAge feature.
+                </p>
+
+            </div>
+
+
+            <div class="takeaway reveal">
+
+                <h3>06 — Transformation Matters</h3>
+
+                <p>
+                    Yeo-Johnson transformation reduced LotArea
+                    skewness from approximately 12.2 to 0.02,
+                    substantially improving its distribution.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     CONCLUSION
+================================= -->
+
+<section class="case-section">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="number">17 — CONCLUSION</div>
+
+            <h2>Conclusion</h2>
+
+        </div>
+
+
+        <div class="conclusion-box reveal">
+
+            <p>
+                This analysis demonstrated that residential property
+                prices are associated with multiple dimensions of a
+                property, including overall quality, living area,
+                basement space, garage capacity, construction year,
+                renovation history and neighborhood.
+            </p>
+
+            <p>
+                The project also demonstrated the importance of data
+                preparation. Missing values were investigated according
+                to their meaning, outliers were evaluated, skewed
+                variables were transformed, and new features were
+                engineered to create more interpretable measurements.
+            </p>
+
+            <p>
+                The analysis provides a structured foundation for the
+                next stage of the project: predictive modeling and
+                evaluation of different machine-learning approaches.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     BACK BUTTON
+================================= -->
+
+<section class="case-section dark">
+
+    <div class="container">
+
+        <a href="../index.html#projects"
+           class="btn secondary-btn">
+
+            ← Back to Projects
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     FOOTER
+================================= -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <p>
+            © 2026 Sameer Alam. Built with Python, data and curiosity.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<script src="../script.js"></script>
+
+</body>
+
+
+</html>
