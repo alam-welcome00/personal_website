@@ -1442,10 +1442,9 @@ footer a:hover {
 
     }
 
-    .hero-image {
-
-        display: none;
-
+         .hero-image {
+          display: block;
+      }
     }
 
     .skills-grid {
