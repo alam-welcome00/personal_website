@@ -1,11 +1,12 @@
 /* =========================================================
-   SAMEER ALAM — PORTFOLIO
-   Clean & Responsive Stylesheet
+   SAMEER ALAM — DATA ANALYST PORTFOLIO
+   Clean Portfolio Stylesheet
    ========================================================= */
 
-/* =========================
+
+/* =========================================================
    ROOT VARIABLES
-   ========================= */
+   ========================================================= */
 
 :root {
     --background: #3d4a5c;
@@ -31,9 +32,9 @@
 }
 
 
-/* =========================
+/* =========================================================
    RESET
-   ========================= */
+   ========================================================= */
 
 * {
     margin: 0;
@@ -47,6 +48,7 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+
     background:
         radial-gradient(
             circle at 15% 20%,
@@ -65,8 +67,11 @@ body {
         );
 
     color: var(--text);
+
     line-height: 1.6;
+
     min-height: 100vh;
+
     overflow-x: hidden;
 }
 
@@ -85,24 +90,27 @@ img {
 }
 
 
-/* =========================
+/* =========================================================
    CONTAINER
-   ========================= */
+   ========================================================= */
 
 .container {
     width: min(100% - 40px, var(--max-width));
+
     margin: 0 auto;
 }
 
 
-/* =========================
+/* =========================================================
    NAVBAR
-   ========================= */
+   ========================================================= */
 
 .navbar {
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
     height: 75px;
 
@@ -113,6 +121,7 @@ img {
     padding: 0 40px;
 
     background: rgba(20, 25, 32, 0.75);
+
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
 
@@ -121,9 +130,14 @@ img {
     z-index: 1000;
 }
 
+
+/* Logo */
+
 .logo {
     font-size: 26px;
+
     font-weight: 700;
+
     letter-spacing: -1px;
 }
 
@@ -131,10 +145,16 @@ img {
     color: var(--accent);
 }
 
+
+/* Navigation */
+
 .nav-links {
     display: flex;
+
     align-items: center;
+
     gap: 30px;
+
     list-style: none;
 }
 
@@ -142,7 +162,9 @@ img {
     position: relative;
 
     color: var(--muted);
+
     font-size: 14px;
+
     font-weight: 500;
 
     transition: var(--transition);
@@ -156,6 +178,7 @@ img {
     content: "";
 
     position: absolute;
+
     left: 0;
     bottom: -7px;
 
@@ -172,26 +195,28 @@ img {
 }
 
 
-/* =========================
+/* =========================================================
    MOBILE MENU BUTTON
-   ========================= */
+   ========================================================= */
 
 .menu-btn {
     display: none;
 
     background: none;
+
     border: none;
 
     color: var(--text);
 
     font-size: 28px;
+
     cursor: pointer;
 }
 
 
-/* =========================
+/* =========================================================
    HERO
-   ========================= */
+   ========================================================= */
 
 .hero {
     position: relative;
@@ -199,6 +224,7 @@ img {
     min-height: 100vh;
 
     display: flex;
+
     align-items: center;
 
     padding: 130px 40px 80px;
@@ -208,15 +234,20 @@ img {
 
 .hero-content {
     width: min(100%, var(--max-width));
+
     margin: 0 auto;
 
     display: grid;
+
     grid-template-columns: 1.1fr 0.9fr;
 
     align-items: center;
 
     gap: 70px;
 }
+
+
+/* Small title */
 
 .small-title {
     display: inline-block;
@@ -226,16 +257,22 @@ img {
     color: var(--accent);
 
     font-size: 14px;
+
     font-weight: 600;
 
     letter-spacing: 2px;
+
     text-transform: uppercase;
 }
+
+
+/* Hero heading */
 
 .hero h1 {
     max-width: 750px;
 
     font-size: clamp(50px, 7vw, 90px);
+
     line-height: 0.95;
 
     letter-spacing: -4px;
@@ -247,14 +284,21 @@ img {
     color: var(--accent);
 }
 
+
+/* Hero subtitle */
+
 .hero h2 {
     margin-bottom: 20px;
 
     font-size: clamp(22px, 3vw, 32px);
+
     font-weight: 500;
 
     color: var(--text);
 }
+
+
+/* Hero description */
 
 .hero-description {
     max-width: 650px;
@@ -262,19 +306,22 @@ img {
     color: var(--muted);
 
     font-size: 17px;
+
     line-height: 1.8;
 
     margin-bottom: 30px;
 }
 
 
-/* =========================
+/* =========================================================
    HERO BUTTONS
-   ========================= */
+   ========================================================= */
 
 .hero-buttons {
     display: flex;
+
     align-items: center;
+
     flex-wrap: wrap;
 
     gap: 15px;
@@ -284,7 +331,9 @@ img {
 
 .btn {
     display: inline-flex;
+
     align-items: center;
+
     justify-content: center;
 
     gap: 10px;
@@ -296,6 +345,7 @@ img {
     border-radius: 8px;
 
     font-size: 14px;
+
     font-weight: 600;
 
     border: 1px solid transparent;
@@ -311,8 +361,12 @@ img {
     transform: translateX(4px);
 }
 
+
+/* Primary button */
+
 .primary-btn {
     background: var(--accent);
+
     color: var(--black);
 }
 
@@ -323,8 +377,12 @@ img {
         0 10px 30px rgba(171, 143, 95, 0.25);
 }
 
+
+/* Secondary button */
+
 .secondary-btn {
     border-color: var(--border);
+
     color: var(--text);
 
     background: rgba(255, 255, 255, 0.04);
@@ -332,16 +390,18 @@ img {
 
 .secondary-btn:hover {
     background: rgba(255, 255, 255, 0.09);
+
     transform: translateY(-2px);
 }
 
 
-/* =========================
+/* =========================================================
    TECH STACK
-   ========================= */
+   ========================================================= */
 
 .tech-stack {
     display: flex;
+
     flex-wrap: wrap;
 
     gap: 10px;
@@ -351,6 +411,7 @@ img {
     padding: 7px 12px;
 
     border: 1px solid var(--border);
+
     border-radius: 50px;
 
     background: rgba(255, 255, 255, 0.04);
@@ -361,13 +422,15 @@ img {
 }
 
 
-/* =========================
-   HERO IMAGE
-   ========================= */
+/* =========================================================
+   HERO PROFILE IMAGE
+   ========================================================= */
 
 .hero-image {
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     position: relative;
@@ -377,6 +440,7 @@ img {
     position: relative;
 
     width: 350px;
+
     height: 460px;
 
     border-radius: 24px;
@@ -389,46 +453,94 @@ img {
 
     box-shadow:
         0 30px 80px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
 }
 
-.profile-frame img {
-    width: 100%;
-    height: 100%;
 
-    object-fit: cover;
-}
+/* Gradient overlay */
 
-.profile-frame::after {
+.profile-frame::before {
     content: "";
 
     position: absolute;
+
     inset: 0;
 
     background:
         linear-gradient(
             135deg,
-            rgba(171, 143, 95, 0.12),
-            transparent 45%,
-            rgba(150, 101, 76, 0.15)
+            rgba(171, 143, 95, 0.35),
+            rgba(150, 101, 76, 0.15),
+            transparent 65%
         );
+
+    opacity: 0;
+
+    transition: opacity 0.4s ease;
+
+    z-index: 2;
 
     pointer-events: none;
 }
 
 
-/* =========================
-   HERO GLOW
-   ========================= */
+/* Profile hover */
+
+.profile-frame:hover {
+    transform:
+        rotate(-2deg)
+        translateY(-5px);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Show gradient */
+
+.profile-frame:hover::before {
+    opacity: 1;
+}
+
+
+/* Profile image */
+
+.profile-frame img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+
+/* Image zoom */
+
+.profile-frame:hover img {
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   BACKGROUND GLOWS
+   ========================================================= */
 
 .glow {
     position: absolute;
 
     width: 300px;
+
     height: 300px;
 
     border-radius: 50%;
 
-    background: rgba(171, 143, 95, 0.10);
+    background:
+        rgba(171, 143, 95, 0.10);
 
     filter: blur(80px);
 
@@ -437,25 +549,29 @@ img {
 
 .glow.one {
     top: 15%;
+
     left: -100px;
 }
 
 .glow.two {
     bottom: 10%;
+
     right: -100px;
 
-    background: rgba(150, 101, 76, 0.10);
+    background:
+        rgba(150, 101, 76, 0.10);
 }
 
 
-/* =========================
+/* =========================================================
    SCROLL INDICATOR
-   ========================= */
+   ========================================================= */
 
 .scroll-indicator {
     position: absolute;
 
     bottom: 25px;
+
     left: 50%;
 
     transform: translateX(-50%);
@@ -465,7 +581,9 @@ img {
     font-size: 12px;
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
 
     gap: 8px;
@@ -477,15 +595,16 @@ img {
     content: "";
 
     width: 1px;
+
     height: 35px;
 
     background: var(--muted);
 }
 
 
-/* =========================
+/* =========================================================
    SECTIONS
-   ========================= */
+   ========================================================= */
 
 .section {
     padding: 110px 40px;
@@ -518,15 +637,17 @@ img {
 }
 
 
-/* =========================
+/* =========================================================
    ABOUT
-   ========================= */
+   ========================================================= */
 
 .about-grid {
     width: min(100%, var(--max-width));
+
     margin: 0 auto;
 
     display: grid;
+
     grid-template-columns: 1fr 1fr;
 
     gap: 70px;
@@ -553,12 +674,13 @@ img {
 }
 
 
-/* =========================
+/* =========================================================
    SKILLS
-   ========================= */
+   ========================================================= */
 
 .skills-section {
     width: min(100%, var(--max-width));
+
     margin: 0 auto;
 }
 
@@ -586,22 +708,28 @@ img {
     overflow: hidden;
 }
 
+
+/* Top gradient line */
+
 .skill-card::before {
     content: "";
 
     position: absolute;
 
     top: 0;
+
     left: 0;
 
     width: 100%;
+
     height: 2px;
 
-    background: linear-gradient(
-        90deg,
-        var(--accent),
-        transparent
-    );
+    background:
+        linear-gradient(
+            90deg,
+            var(--accent),
+            transparent
+        );
 
     opacity: 0;
 
@@ -613,26 +741,34 @@ img {
 
     background: var(--card-hover);
 
-    border-color: rgba(171, 143, 95, 0.3);
+    border-color:
+        rgba(171, 143, 95, 0.3);
 }
 
 .skill-card:hover::before {
     opacity: 1;
 }
 
+
+/* Skill icon */
+
 .skill-icon {
     width: 52px;
+
     height: 52px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     margin-bottom: 20px;
 
     border-radius: 12px;
 
-    background: rgba(171, 143, 95, 0.12);
+    background:
+        rgba(171, 143, 95, 0.12);
 
     color: var(--accent);
 
@@ -657,6 +793,7 @@ img {
 
 .skill-tags {
     display: flex;
+
     flex-wrap: wrap;
 
     gap: 8px;
@@ -667,7 +804,8 @@ img {
 
     border-radius: 5px;
 
-    background: rgba(255, 255, 255, 0.05);
+    background:
+        rgba(255, 255, 255, 0.05);
 
     border: 1px solid var(--border);
 
@@ -677,23 +815,26 @@ img {
 }
 
 
-/* =========================
+/* =========================================================
    PROJECTS
-   ========================= */
+   ========================================================= */
 
 .projects-grid {
     width: min(100%, var(--max-width));
+
     margin: 0 auto;
 
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(3, 1fr);
 
     gap: 25px;
 }
 
 .project-card {
     display: flex;
+
     flex-direction: column;
 
     background: var(--card);
@@ -712,8 +853,14 @@ img {
 
     background: var(--card-hover);
 
-    border-color: rgba(171, 143, 95, 0.3);
+    border-color:
+        rgba(171, 143, 95, 0.3);
 }
+
+
+/* =========================================================
+   PROJECT IMAGE
+   ========================================================= */
 
 .project-image {
     position: relative;
@@ -722,53 +869,128 @@ img {
 
     overflow: hidden;
 
-    background: rgba(0, 0, 0, 0.15);
+    background:
+        rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
 }
+
+
+/* Gradient overlay */
+
+.project-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(171, 143, 95, 0.35),
+            rgba(150, 101, 76, 0.15),
+            transparent 65%
+        );
+
+    opacity: 0;
+
+    transition: opacity 0.4s ease;
+
+    pointer-events: none;
+}
+
+
+/* Slight tilt */
+
+.project-card:hover .project-image {
+    transform:
+        rotate(-1.5deg)
+        scale(1.02);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Show gradient */
+
+.project-card:hover .project-image::after {
+    opacity: 1;
+}
+
+
+/* Project image */
 
 .project-image img {
     width: 100%;
+
     height: 100%;
 
     object-fit: cover;
 
-    transition: transform 0.5s ease;
+    transition:
+        transform 0.5s ease;
 }
 
+
+/* Image zoom */
+
 .project-card:hover .project-image img {
-    transform: scale(1.04);
+    transform: scale(1.06);
 }
+
+
+/* Graph inside project */
 
 .project-graph {
     width: 100%;
+
     height: 100%;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 }
 
 .project-graph img {
     max-width: 100%;
+
     max-height: 100%;
 
     object-fit: contain;
 }
+
+
+/* Image overlay */
 
 .image-overlay {
     position: absolute;
 
     inset: 0;
 
-    background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.35),
-        transparent
-    );
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.35),
+            transparent
+        );
 }
+
+
+/* =========================================================
+   PROJECT CONTENT
+   ========================================================= */
 
 .project-content {
     display: flex;
+
     flex-direction: column;
+
     flex: 1;
 
     padding: 25px;
@@ -778,6 +1000,7 @@ img {
     color: var(--accent);
 
     font-size: 12px;
+
     font-weight: 700;
 
     letter-spacing: 1px;
@@ -801,8 +1024,12 @@ img {
     margin-bottom: 18px;
 }
 
+
+/* Project tags */
+
 .project-tags {
     display: flex;
+
     flex-wrap: wrap;
 
     gap: 7px;
@@ -815,7 +1042,8 @@ img {
 
     border-radius: 5px;
 
-    background: rgba(255, 255, 255, 0.05);
+    background:
+        rgba(255, 255, 255, 0.05);
 
     border: 1px solid var(--border);
 
@@ -824,8 +1052,12 @@ img {
     font-size: 11px;
 }
 
+
+/* Project link */
+
 .project-link {
     display: inline-flex;
+
     align-items: center;
 
     gap: 8px;
@@ -835,6 +1067,7 @@ img {
     color: var(--accent);
 
     font-size: 14px;
+
     font-weight: 600;
 
     transition: var(--transition);
@@ -849,13 +1082,14 @@ img {
 }
 
 .project-link:hover span {
-    transform: translate(3px, -3px);
+    transform:
+        translate(3px, -3px);
 }
 
 
-/* =========================
+/* =========================================================
    CONTACT
-   ========================= */
+   ========================================================= */
 
 .contact-section {
     padding: 100px 40px;
@@ -897,12 +1131,15 @@ img {
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-   ========================= */
+   ========================================================= */
 
 footer {
-    width: min(100% - 80px, var(--max-width));
+    width: min(
+        100% - 80px,
+        var(--max-width)
+    );
 
     margin: 0 auto;
 
@@ -911,6 +1148,7 @@ footer {
     display: flex;
 
     align-items: center;
+
     justify-content: space-between;
 
     gap: 20px;
@@ -924,6 +1162,7 @@ footer {
 
 .footer-links {
     display: flex;
+
     align-items: center;
 
     gap: 20px;
@@ -938,14 +1177,15 @@ footer {
 }
 
 
-/* =========================
+/* =========================================================
    SCROLL REVEAL
-   ========================= */
+   ========================================================= */
 
 .reveal {
     opacity: 0;
 
-    transform: translateY(30px);
+    transform:
+        translateY(30px);
 
     transition:
         opacity 0.7s ease,
@@ -955,12 +1195,13 @@ footer {
 .reveal.active {
     opacity: 1;
 
-    transform: translateY(0);
+    transform:
+        translateY(0);
 }
 
 
 /* =========================================================
-   PROJECT / CASE STUDY PAGE SUPPORT
+   CASE STUDY / PROJECT PAGE
    ========================================================= */
 
 .case-hero {
@@ -983,7 +1224,8 @@ footer {
 .case-hero h1 {
     max-width: 900px;
 
-    font-size: clamp(42px, 6vw, 70px);
+    font-size:
+        clamp(42px, 6vw, 70px);
 
     line-height: 1.05;
 
@@ -1013,9 +1255,9 @@ footer {
 }
 
 
-/* =========================
+/* =========================================================
    GRAPH CONTAINERS
-   ========================= */
+   ========================================================= */
 
 .graph-container {
     max-width: 850px;
@@ -1049,10 +1291,14 @@ footer {
     font-size: 20px;
 }
 
+
+/* Two graph columns */
+
 .graph-grid {
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+        repeat(2, 1fr);
 
     gap: 25px;
 
@@ -1073,7 +1319,7 @@ footer {
 
 
 /* =========================================================
-   RESPONSIVE
+   TABLET
    ========================================================= */
 
 @media (max-width: 1000px) {
@@ -1088,6 +1334,7 @@ footer {
 
     .hero-description {
         margin-left: auto;
+
         margin-right: auto;
     }
 
@@ -1110,18 +1357,20 @@ footer {
     }
 
     .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
     .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 }
 
 
-/* =========================
-   TABLET / MOBILE
-   ========================= */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 768px) {
 
@@ -1143,6 +1392,7 @@ footer {
         top: 75px;
 
         left: 20px;
+
         right: 20px;
 
         flex-direction: column;
@@ -1153,9 +1403,11 @@ footer {
 
         padding: 18px;
 
-        background: rgba(22, 26, 34, 0.96);
+        background:
+            rgba(22, 26, 34, 0.96);
 
         backdrop-filter: blur(18px);
+
         -webkit-backdrop-filter: blur(18px);
 
         border: 1px solid var(--border);
@@ -1173,10 +1425,12 @@ footer {
         padding: 10px;
     }
 
+
     /* Hero */
 
     .hero {
-        padding: 120px 20px 70px;
+        padding:
+            120px 20px 70px;
 
         text-align: center;
     }
@@ -1187,6 +1441,7 @@ footer {
 
     .hero-description {
         margin-left: auto;
+
         margin-right: auto;
     }
 
@@ -1199,10 +1454,12 @@ footer {
     }
 
     .profile-frame {
-        width: min(300px, 80vw);
+        width:
+            min(300px, 80vw);
 
         height: 380px;
     }
+
 
     /* Sections */
 
@@ -1214,17 +1471,20 @@ footer {
         margin-bottom: 45px;
     }
 
+
     /* Skills */
 
     .skills-grid {
         grid-template-columns: 1fr;
     }
 
+
     /* Projects */
 
     .projects-grid {
         grid-template-columns: 1fr;
     }
+
 
     /* Contact */
 
@@ -1235,6 +1495,7 @@ footer {
     .contact-box {
         padding: 70px 20px;
     }
+
 
     /* Footer */
 
@@ -1250,7 +1511,8 @@ footer {
         text-align: center;
     }
 
-    /* Case studies */
+
+    /* Case study */
 
     .case-section .container,
     .case-hero .container {
@@ -1258,12 +1520,16 @@ footer {
     }
 
     .case-hero {
-        padding: 120px 20px 60px;
+        padding:
+            120px 20px 60px;
     }
 
     .case-section {
         padding: 60px 0;
     }
+
+
+    /* Graphs */
 
     .graph-grid {
         grid-template-columns: 1fr;
@@ -1285,18 +1551,20 @@ footer {
 }
 
 
-/* =========================
+/* =========================================================
    SMALL PHONES
-   ========================= */
+   ========================================================= */
 
 @media (max-width: 480px) {
 
     .container {
-        width: calc(100% - 30px);
+        width:
+            calc(100% - 30px);
     }
 
     .hero {
         padding-left: 15px;
+
         padding-right: 15px;
     }
 
@@ -1330,6 +1598,7 @@ footer {
 
     .profile-frame {
         width: 230px;
+
         height: 310px;
     }
 
@@ -1364,6 +1633,7 @@ footer {
 
     .case-hero {
         padding-left: 16px;
+
         padding-right: 16px;
     }
 }
