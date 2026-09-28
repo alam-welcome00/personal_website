@@ -1822,3 +1822,172 @@ footer a:hover {
         height: auto;
     }
 }
+
+/* =========================================
+   CONTACT POPUP
+   ========================================= */
+
+.contact-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all 0.3s ease;
+
+    z-index: 9999;
+}
+
+.contact-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.contact-box {
+    position: relative;
+
+    width: 100%;
+    max-width: 480px;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    background: #111827;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+
+    transform: translateY(30px) scale(0.95);
+
+    transition: all 0.3s ease;
+}
+
+.contact-modal.active .contact-box {
+    transform: translateY(0) scale(1);
+}
+
+.contact-box h2 {
+    margin-bottom: 10px;
+}
+
+.contact-subtitle {
+    color: #aeb6c7;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.close-contact {
+    position: absolute;
+
+    top: 15px;
+    right: 18px;
+
+    border: none;
+    background: transparent;
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.contact-item > span {
+    font-size: 24px;
+}
+
+.contact-item small {
+    display: block;
+
+    color: #8f99ad;
+
+    margin-bottom: 4px;
+}
+
+.contact-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+.contact-item p {
+    margin: 0;
+}
+
+.contact-actions {
+    display: flex;
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.contact-action {
+    flex: 1;
+
+    padding: 13px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+.email-action {
+    background: #ffffff;
+    color: #111827;
+}
+
+.call-action {
+    background: #2d7df6;
+    color: white;
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+
+    .contact-box {
+        padding: 28px 20px;
+    }
+
+    .contact-actions {
+        flex-direction: column;
+    }
+
+    .contact-item {
+        padding: 13px;
+    }
+}
