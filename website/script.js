@@ -51,16 +51,20 @@ const navLinks =
     document.querySelector(".nav-links");
 
 
-menuButton.addEventListener(
-    "click",
-    () => {
+if (menuButton && navLinks) {
 
-        navLinks.classList.toggle(
-            "mobile-active"
-        );
+    menuButton.addEventListener(
+        "click",
+        () => {
 
-    }
-);
+            navLinks.classList.toggle(
+                "active"
+            );
+
+        }
+    );
+
+}
 
 
 
@@ -80,29 +84,15 @@ navigationLinks.forEach((link) => {
         "click",
         () => {
 
-            navLinks.classList.remove(
-                "mobile-active"
-            );
+            if (navLinks) {
+
+                navLinks.classList.remove(
+                    "active"
+                );
+
+            }
 
         }
     );
 
-});
-
-const contactBtn = document.getElementById("contactBtn");
-const contactModal = document.getElementById("contactModal");
-const closeContact = document.getElementById("closeContact");
-
-contactBtn.addEventListener("click", () => {
-    contactModal.classList.add("active");
-});
-
-closeContact.addEventListener("click", () => {
-    contactModal.classList.remove("active");
-});
-
-contactModal.addEventListener("click", (event) => {
-    if (event.target === contactModal) {
-        contactModal.classList.remove("active");
-    }
 });
