@@ -88,3 +88,21 @@ navigationLinks.forEach((link) => {
     );
 
 });
+
+const contactBtn = document.getElementById("contactBtn");
+const contactModal = document.getElementById("contactModal");
+const closeContact = document.getElementById("closeContact");
+
+contactBtn.addEventListener("click", () => {
+    contactModal.classList.add("active");
+});
+
+closeContact.addEventListener("click", () => {
+    contactModal.classList.remove("active");
+});
+
+contactModal.addEventListener("click", (event) => {
+    if (event.target === contactModal) {
+        contactModal.classList.remove("active");
+    }
+});
